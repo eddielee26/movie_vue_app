@@ -1,3 +1,5 @@
+<!-- NOTE: _actor.json.jb VIEW and actor.rb MODEL edits made to make this code work  -->
+
 <template>
   <div class="home">
     <h1>New Actor</h1>
@@ -64,18 +66,18 @@ export default {
         age: this.newActorAge
       };
       axios
-      .post("/api/actors", params)
-      .then(response => {
-        console.log("Success", response.data);
-        this.actors.push(response.data);
-        this.newActorFirstName = "";
-        this.newActorLastName = "";
-        this.newActorGender = "";
-        this.newActorAge = "";
-      })
-      .catch(error => {
-        console.log(error.response.data.errors);
-      });
+        .post("/api/actors", params)
+        .then(response => {
+          console.log("Success", response.data);
+          this.actors.push(response.data);
+          this.newActorFirstName = "";
+          this.newActorLastName = "";
+          this.newActorGender = "";
+          this.newActorAge = "";
+        })
+        .catch(error => {
+          console.log(error.response.data.errors);
+        });
     },
     showActor: function(actor) {
       if (this.currentActor === actor) {
@@ -112,4 +114,3 @@ export default {
 </script>
 
 
-<!-- NOTE: _actor.json.jb VIEW and actor.rb MODEL edits made to make this code work  -->
